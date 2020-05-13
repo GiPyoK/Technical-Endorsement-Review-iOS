@@ -29,8 +29,18 @@ During the iOS Interview, you'll be asked to show your mastery of concepts from 
         - protocols and delegates
         - It allows us to provide (or inject) object or data (dependencies) into another object
         - effectively test complex code with one or more dependencies
-    - Model - View - Controller
-        - 
+    - MVC
+        - Model:
+        - View:
+        - Controller:
+    - MVP
+        - Model:
+        - View:
+        - Presenter: address all UI events on behalf of the view
+    - MVVM
+        - Model:
+        - View:
+        - ViewModel: presenting functions, methods and commands to uphold the state of the view. Operate the model and activate the events in the view itself
 3. Explain the importance of data persistence to create a consistent user interface/experience.
     - Data Persistence
         - Property List
@@ -42,7 +52,8 @@ During the iOS Interview, you'll be asked to show your mastery of concepts from 
     - Grand Central Dispatch
 5. Demonstrate practical uses of programmatic constraints for view layout and using the `draw()` method to build custom controls.
     - programmatic constraints
-        - 
+        - NSLayoutConstraint (top, bottom, leading, trailing)
+        - Anchor
 6. Explain the usefulness of Core Data as a persistence layer, show examples of data modeling/migration using the provided Xcode tools, and discuss the pitfalls and workarounds surrounding using Core Data with a multi-threaded application.
 7. Explain the value of generics and provide examples for use cases in app development; explain concurrency in a general computing context, as well as the mechanisms in iOS that allow for concurrent programming.
     - race condition handle
@@ -84,9 +95,43 @@ During the iOS Interview, you'll be asked to show your mastery of concepts from 
         }
         ```
 
+    - ARC: Automatic Reference Counting
+    - @synthesize = override both setter/getter or disable them, still create instance variable
+    - Property Atributes
+        - readonly
+        - readwrite (default)
+        - atomic (default): prevents concurrent access to the object by multiple threads
+        - nonatomic: faster than atomic, no guarantees for thread safety
+        - nonnull
+        - nullable
+        - strong (default)
+        - weak
+        - assign (default for primitive types)
+        - copy : use with NSString, NSArray, NSSet
+
+    - Forward class declaration: @class
 12. Explain advanced Objective-C concepts like memory management and KVO/KVC.
     - Key Value Observing
     - Key value Coding
+    - closures (block)
+        - returnType (^blockNameVariable)(parametersCommaSeparated) = ^returnType(parameters) { };
+        - int (^addNumbers)(int a, int b) = ^int (int a, int b) { };
+    - URLSession, NSJasonSerialization
+    - MRC vs ARC
+        - MRC:
+            - creating object with "alloc", "copy", "new", then you own it
+            - "retain" an object, then you own it
+            - if you own it, must release it
+    - objc to swift
+        - Name-of-project-Bridging-Header.h
+            - #import "GIPClassName.h"
+        - GIPClassName.h
+            - NS_SWIFT_NAME(ClassName)
+    - swift to objc
+        - .h
+            - @class SwiftClass
+        - .m
+            - #import "SwiftClass-Swift.h"
 
 **Possible Results**
 
